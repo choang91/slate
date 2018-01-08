@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;json&quot;,&quot;java&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;,&quot;shell&quot;,&quot;java&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,8 +211,8 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="java">java</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
@@ -267,6 +267,18 @@
                   </li>
                   <li>
                     <a href="#create-a-region" class="toc-h2 toc-link" data-title="Create a Region">Create a Region</a>
+                  </li>
+                  <li>
+                    <a href="#upload-to-an-album" class="toc-h2 toc-link" data-title="Upload to an Album">Upload to an Album</a>
+                  </li>
+                  <li>
+                    <a href="#upload-to-a-location" class="toc-h2 toc-link" data-title="Upload to a Location">Upload to a Location</a>
+                  </li>
+                  <li>
+                    <a href="#upload-to-a-region" class="toc-h2 toc-link" data-title="Upload to a Region">Upload to a Region</a>
+                  </li>
+                  <li>
+                    <a href="#upload-to-a-misc-folder" class="toc-h2 toc-link" data-title="Upload to a Misc folder">Upload to a Misc folder</a>
                   </li>
               </ul>
           </li>
@@ -555,7 +567,7 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='request-parameters-7'>Request parameters</h3>
 <p>N/A</p>
 <h3 id='sample-response-10'>Sample response</h3><h2 id='create-a-location'>Create a Location</h2>
-<p><code>POST http://[BaseUrl]/location</code></p>
+<p><code>POST http://[BaseUrl]/locations</code></p>
 <h3 id='description-11'>Description</h3>
 <p>Create a new location</p>
 <h3 id='request-headers-11'>Request headers</h3>
@@ -614,10 +626,154 @@ Remember — a happy kitten is an authenticated kitten!
 </tbody></table>
 <h3 id='request-parameters-9'>Request parameters</h3>
 <p>N/A</p>
-<h3 id='sample-response-12'>Sample response</h3><h1 id='errors'>Errors</h1>
+<h3 id='sample-response-12'>Sample response</h3><h2 id='upload-to-an-album'>Upload to an Album</h2>
+<p><code>POST http://[BaseUrl]/upload/album/{albumId}</code></p>
+<h3 id='description-13'>Description</h3>
+<p>Upload image(s) to S3 bucket and save in an album with provided albumId</p>
+<h3 id='request-headers-13'>Request headers</h3>
+<p>N/A</p>
+<h3 id='path-variables-4'>Path variables</h3>
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>albumId</td>
+<td>Album ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters-10'>Request parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file[]</td>
+<td>File(s) to upload</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-13'>Sample response</h3><h2 id='upload-to-a-location'>Upload to a Location</h2>
+<p><code>POST http://[BaseUrl]/upload/location/{locationId}</code></p>
+<h3 id='description-14'>Description</h3>
+<p>Upload image(s) to S3 bucket and save in a location with provided locationId</p>
+<h3 id='request-headers-14'>Request headers</h3>
+<p>N/A</p>
+<h3 id='path-variables-5'>Path variables</h3>
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>locationId</td>
+<td>Location ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters-11'>Request parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file[]</td>
+<td>File(s) to upload</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-14'>Sample response</h3><h2 id='upload-to-a-region'>Upload to a Region</h2>
+<p><code>POST http://[BaseUrl]/upload/region/{regionId}</code></p>
+<h3 id='description-15'>Description</h3>
+<p>Upload image(s) to S3 bucket and save in a region with provided regionId</p>
+<h3 id='request-headers-15'>Request headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>imageName</td>
+<td>Name of the image</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>Region latitude</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>Region longitude</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='path-variables-6'>Path variables</h3>
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>regionId</td>
+<td>Region ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters-12'>Request parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file[]</td>
+<td>File(s) to upload</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-15'>Sample response</h3><h2 id='upload-to-a-misc-folder'>Upload to a Misc folder</h2>
+<p><code>POST http://[BaseUrl]/upload</code></p>
+<h3 id='description-16'>Description</h3>
+<p>Upload image(s) to S3 bucket and save in a /misc folder</p>
+<h3 id='request-headers-16'>Request headers</h3>
+<p>N/A</p>
+<h3 id='request-parameters-13'>Request parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file[]</td>
+<td>File(s) to upload</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='sample-response-16'>Sample response</h3><h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Ansel Adams API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -627,7 +783,7 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request is bad.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -635,15 +791,15 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The request is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified item could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access a resource with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
@@ -651,7 +807,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Gone -- The resource requested has been removed from our servers.</td>
 </tr>
 <tr>
 <td>418</td>
@@ -659,7 +815,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too many resources! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -674,8 +830,8 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="java">java</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
