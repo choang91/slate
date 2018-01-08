@@ -2,8 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - json
+  - shell
   - java
   - javascript
 
@@ -313,7 +313,7 @@ N/A
 ### Sample response
 
 ## Create a Location
-`POST http://[BaseUrl]/location`
+`POST http://[BaseUrl]/locations`
 
 ### Description
 Create a new location
@@ -345,5 +345,88 @@ longitude | Region longitude | Yes
 
 ### Request parameters
 N/A
+
+### Sample response
+
+## Upload to an Album
+`POST http://[BaseUrl]/upload/album/{albumId}`
+
+### Description
+Upload image(s) to S3 bucket and save in an album with provided albumId
+
+### Request headers
+N/A
+
+### Path variables
+Variable | Description | Required?
+-------------- | -------------- | --------------
+albumId | Album ID | Yes
+
+### Request parameters
+Parameter | Description | Required?
+-------------- | -------------- | --------------
+file[] | File(s) to upload | Yes
+
+### Sample response
+
+## Upload to a Location
+`POST http://[BaseUrl]/upload/location/{locationId}`
+
+### Description
+Upload image(s) to S3 bucket and save in a location with provided locationId
+
+### Request headers
+N/A
+
+### Path variables
+Variable | Description | Required?
+-------------- | -------------- | --------------
+locationId | Location ID | Yes
+
+### Request parameters
+Parameter | Description | Required?
+-------------- | -------------- | --------------
+file[] | File(s) to upload | Yes
+
+### Sample response
+
+## Upload to a Region
+`POST http://[BaseUrl]/upload/region/{regionId}`
+
+### Description
+Upload image(s) to S3 bucket and save in a region with provided regionId
+
+### Request headers
+Parameter | Description | Required?
+-------------- | -------------- | --------------
+imageName | Name of the image | Yes
+latitude | Region latitude | Yes
+longitude | Region longitude | Yes
+
+### Path variables
+Variable | Description | Required?
+-------------- | -------------- | --------------
+regionId | Region ID | Yes
+
+### Request parameters
+Parameter | Description | Required?
+-------------- | -------------- | --------------
+file[] | File(s) to upload | Yes
+
+### Sample response
+
+## Upload to a Misc folder
+`POST http://[BaseUrl]/upload`
+
+### Description
+Upload image(s) to S3 bucket and save in a /misc folder
+
+### Request headers
+N/A
+
+### Request parameters
+Parameter | Description | Required?
+-------------- | -------------- | --------------
+file[] | File(s) to upload | Yes
 
 ### Sample response
